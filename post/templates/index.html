@@ -9,8 +9,16 @@
 </head>
 <body>
     <h1 style="color: red;">This is home page </h1> 
+    {% for i in posts  %}
+      
+        <h2>{{ i.title }}</h2>
+        <a href="/detail/{{ i.id }}">View</a>
+        <a href="/update/{{ i.id }}">edit</a>
+        <hr>
+    {% endfor %}
         <a href="/signup">signup</a>
-        <img  src="{% static 'assets/img.jpg' %}" alt="">
-    <script src="{% static 'js/script.js' %}"></script>
+
+
+     
 </body>
 </html>
