@@ -1,24 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <h1 style="color: red;">This is home page </h1> 
+{% extends 'base.html' %}
+
+
+
+
+
+{% block content %}
+    {% block sub %}23345sdfsdf45354567{% endblock %}
+
+ <h1 style="color: red;">This is home page </h1> 
     {% for i in posts  %}
-      
-        <h2>{{ i.title }}</h2>
-        <a href="/detail/{{ i.id }}">View</a>
-        <a href="/update/{{ i.id }}">edit</a>
-        <hr>
+        {% if role == "admin" %}
+            <h2 >{{ i.title }}</h2>
+            <a href="/detail/{{ i.id }}">View</a>
+            <a href="/update/{{ i.id }}">edit</a>
+            <hr>
+        {% elif role == "student" %}
+            <h2>{{ i.title }}</h2>
+            <a href="/detail/{{ i.id }}">View</a>
+          
+            <hr>
+        {% elif role == "guest" %}
+            <h2>{{ i.title }}</h2>
+           
+          
+            <hr>
+        {% endif %}
     {% endfor %}
         <a href="/signup">signup</a>
+    {% include 'btn.html' %}
+
+{% endblock %}
 
 
-     
-</body>
-</html>
+
+{% block title %}Home{% endblock %}

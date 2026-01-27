@@ -21,7 +21,7 @@ def home(request):
     post2 = [{"title":"john", "description": "this is django"} ,
             {"title":"peter", "description": "this is django"} ,
             {"title":"john", "description": "this is django"} ]
-    return render(request, "index.html", {"posts":post})
+    return render(request, "index.html", {"posts":post , "role":"guest"})
 
 def detail(request, id):
     post = Post.objects.get(id=id)
