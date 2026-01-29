@@ -9,4 +9,11 @@ class Signup(models.Model):
     profile = models.ImageField(upload_to='profile/' ,default="/media/profile.png")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
+
+class User_post(models.Model):
+    user = models.ForeignKey(Signup, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
