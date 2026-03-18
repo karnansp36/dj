@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}LIst{% endblock %}
+{% block content %}
+<h1>User role = {{role}}</h1>
+    <h1>Task</h1>
+    {% for x in task %}
+        {% if role == 'admin' %}
+            <h1 style="background-color: red;">{{ x.title }}</h1>
+            <a href="/data/{{ x.id }}">Views</a>
+            <a href="/edit/{{ x.id }}">edit</a>
+            <a href="/delete/{{ x.id }}">delete</a>
+            <h3>loop...</h3>
+        {% elif role == 'trainer' %}
+            <h1 style="background-color: red;">{{ x.title }}</h1>
+            <a href="/data/{{ x.id }}">Views</a>
+        {% else %}
+            <h1>{{ x.title }}</h1>
+           
+         {% endif %}
+    {% endfor %}
+    <h1>loop completed</h1>
+    {% block subheading %}
+  
+    {% endblock %}
+    {% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+
