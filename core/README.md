@@ -1,1 +1,1 @@
-This django project 
+updated from the cloud
