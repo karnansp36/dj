@@ -85,5 +85,5 @@ def insta_post_list(request):
     if 'insta_user_id' not in request.session:
         return redirect('insta_login')
     id=request.session['insta_user_id']
-    user_post = Post.objects.filter(user_id = id).order_by('-created_at')
+    user_post = Post.objects.filter(user_id = id).order_by('created_at')
     return render(request, 'insta_post_list.html', {'posts': user_post})
